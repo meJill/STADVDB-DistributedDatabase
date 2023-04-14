@@ -3,12 +3,18 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "jemill12"
+  password: "jemill12",
+  database: "myapp"
 });
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+  var sql = "INSERT INTO users (id, name, email, password) VALUES ('1', 'Ajeet Kumar', '27', 'Allahabad')"; 
+  con.query(sql, function (err, result) {  
+    if (err) throw err;  
+    console.log("1 record inserted");  
+  })
 });
 
 
