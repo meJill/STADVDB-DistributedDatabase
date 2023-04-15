@@ -1,16 +1,16 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "34.126.128.168",
   user: "root",
-  password: "jemill12",
-  database: "myapp"
+  password: "group23sleigh",
+  database: "IMDB"
 });
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "INSERT INTO users (id, name, email, password) VALUES ('1', 'Ajeet Kumar', '27', 'Allahabad')"; 
+  var sql = "INSERT INTO actors (id, first_name, last_name, gender) VALUES ('2',	'Michael',	'babeepower Viera',	'M')"; 
   con.query(sql, function (err, result) {  
     if (err) throw err;  
     console.log("1 record inserted");  
