@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.fluid.classless.min.css">
+        <title> Distributed Database</title>
+        <script type="text/javascript">
+            function openAction(evt, ActionName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(ActionName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+        </script>
+    </head>
+
+    <body>
+
+    <main class = 'container'>
+        <h3> Choose Action: </h3>
+            <div class = "tab">
+                <div>
+                    <button id = "insert" class = "tablinks" onClick="openAction(event, 'Insert')"> Insert </button>
+                </div>
+                <div>
+                    <button id = "update" class = "tablinks" onClick="openAction(event, 'Update')"> Update </button>
+                </div>
+                <div>
+                    <button id = "search" class = "tablinks" onClick="openAction(event, 'Search')"> Search </button>
+                </div>
+                <div>
+                    <button id = "view" class = "tablinks" onClick="openAction(event, 'View')"> View </button>
+                </div>
+            </div>
+            
+            {{!-- INSERT DATA ONCE SUBMITTED --}}
+
+            <div id = "Search" class = "tabcontent">
+                <form id = "edit_movies">
+                 
+                    <label for = "movie_title"> Movie Title </label>
+                    <input type="text" name="movie_title" id="movie_title">
+                   
+                    <br>
+                    <button id = 'submit'> Search </button>
+                </form>
+            </div>
+
+
+            <div id = "Update" class = "tabcontent">
+                <form id = "edit_movies">
+                    <label for = "id"> ID </label>
+                    <input type="text" name="id" id="id">
+                    <br>
+                    <label for = "movie_title"> Movie Title </label>
+                    <input type="text" name="movie_title" id="movie_title">
+                    <br>
+                    <label for = "movie_year"> Year </label>
+                    <input type="year" name="movie_year" id="movie_year">
+                    <br>
+                    <label for = "rating"> Rating </label>
+                    <input type="text" name="rating" id="rating">
+                    <br>
+                    <button id = 'submit'> Update </button>
+                </form>
+            </div>
+
+        
+            <div id = "Insert" class = "tabcontent">
+                <form id = "edit_movies">
+                    <label for = "id"> ID </label>
+                    <input type="text" name="id" id="id">
+                    <br>
+                    <label for = "movie_title"> Movie Title </label>
+                    <input type="text" name="movie_title" id="movie_title">
+                    <br>
+                    <label for = "movie_year"> Year </label>
+                    <input type="year" name="movie_year" id="movie_year">
+                    <br>
+                    <label for = "rating"> Rating </label>
+                    <input type="text" name="rating" id="rating">
+                    <br>
+                    <button id = 'submit'> Insert </button>
+                </form>
+            </div>
+
+        
+            <div id = "View" class = "tabcontent">
+                <form id = "edit_movies">
+                    <label for = "id"> ID </label>
+                    <input type="text" name="id" id="id">
+                    <br>
+                    <label for = "movie_title"> Movie Title </label>
+                    <input type="text" name="movie_title" id="movie_title">
+                    <br>
+                    <label for = "movie_year"> Year </label>
+                    <input type="year" name="movie_year" id="movie_year">
+                    <br>
+                    <label for = "rating"> Rating </label>
+                    <input type="text" name="rating" id="rating">
+                    <br>
+                    <button id = 'submit'> View </button>
+                </form>
+            </div>
+
+    </main>
+    </body>
+
+    
+</html>

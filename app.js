@@ -1,23 +1,68 @@
+var express = require('express');
+var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var hbs = require('hbs');
+var exphbs = require('express-handlebars');
 
-var con = mysql.createConnection({
-  host: "34.126.128.168",
-  user: "root",
-  password: "group23sleigh",
-  database: "IMDB"
+var app = express();
+var port = 3000;
+
+app.set('view engine', 'hbs');
+const path = require('path');
+
+app.engine('handlebars', exphbs.engine({
+  layoutsDir: __dirname + '/views/layouts',
+  }));
+  app.use(express.static('public'))
+  app.get('/', (req, res) => {
+  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
+  res.render('main', {layout : 'index'});
+  });
+
+app.listen(3000, function () {
+  console.log(`Server is running at:` + 3000);
+  
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var sql = "INSERT INTO actors (id, first_name, last_name, gender) VALUES ('2',	'Michael',	'babeepower Viera',	'M')"; 
-  con.query(sql, function (err, result) {  
-    if (err) throw err;  
-    console.log("1 record inserted");  
-  })
-});
 
+// var con = mysql.createConnection({
+//   host: "34.126.128.168",
+//   user: "root",
+//   password: "group23sleigh",
+//   database: "IMDB"
+// });
 
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   var sql = "INSERT INTO actors (id, first_name, last_name, gender) VALUES ('2',	'Michael',	'babeepower Viera',	'M')"; 
+//   con.query(sql, function (err, result) {  
+//     if (err) throw err;  
+//     console.log("1 record inserted");  
+//   })
+// });
+
+//--------------------------------------------/
+// app.post('/users', (req, res) => {
+//   const id = req.body.id;
+//   const first_name = req.body.first_name;
+//   const last_name = req.body.last_name;
+//   const gender = req.body.gender;
+
+//   const query = 'INSERT INTO actors (id, first_name, last_name, gender) VALUES (?, ?, ?, ?)';
+//   const values = [name, email, password];
+
+//   connection.query(query, values, (error, results, fields) => {
+//     if (error) {
+//       console.error('Error creating user: ' + error.stack);
+//       res.sendStatus(500);
+//       return;
+//     }
+
+//     console.log('User created with id ' + results.insertId);
+//     res.sendStatus(201);
+//   });
+// });
 
 // const express = require('express');
 // const bodyParser = require('body-parser');
