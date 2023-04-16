@@ -6,7 +6,7 @@ var exphbs = require('express-handlebars');
 
 var app = express();
 var port = 3000;
-
+ 
 app.set('view engine', 'hbs');
 const path = require('path');
 
@@ -24,7 +24,7 @@ app.listen(3000, function () {
   
 });
 
-
+//other code
 // var con = mysql.createConnection({
 //   host: "34.126.128.168",
 //   user: "root",
