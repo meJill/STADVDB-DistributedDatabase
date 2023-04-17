@@ -11,8 +11,8 @@ exports.getInsert = function(req, res) {
     });
 }
 
-exports.getSearch = function(req, res) {
-    res.render('search',{
+exports.getDelete = function(req, res) {
+    res.render('delete',{
         title: "STADVDV | MCO2 TRANSACTION MANAGEMENT (SEARCH)"
     });
 }

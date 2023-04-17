@@ -1,7 +1,16 @@
 <%-include('header') -%>
 
 <div class = "container">
-    AIHSDGHJSDFKJSD
+    <a href = "/" class = "col s6 waves-effect waves-light btn-small"> HOME </a>
+    <h4> Read a Record </h4>
+
+    <% for (const record of records) {%>
+        <h5> Movie ID: <%= record.movie_id %> </h5>
+        <h5> Movie Title: <%= record.movie_title %> </h5>
+        <h5> Year: <%= record.year %> </h5>
+        <h5> Director: <%= record.director %> </h5>
+    <% } %>
+    <script src ="/js/read.js"></script>"
 </div>
 
 <%-include('footer') -%> 

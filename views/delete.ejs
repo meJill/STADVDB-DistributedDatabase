@@ -1,14 +1,14 @@
 <%-include('header') -%>
 
+
 <div class = "container">
     <a href = "/" class = "col s6 waves-effect waves-light btn-small"> HOME </a>
     <h4> Insert a Record </h4>
-        <form id = "insertID" method = "post">
+        <form id = "deleteID" method = "post">
             <input type="text" name = "movie_id" id = "movie_id" class = "input-field inline"> <br>
 
-            <input type ="submit" value = "insert" name = "submit" class = "waves-effect waves-light btn-large">
+            <input type ="submit" name = "submit" value = "delete" class = "waves-effect waves-light btn-large">
         </form>
-        <script src = "/js/insert.js"></script>
+        <script src = "/js/delete.js"></script>
 </div>
-
 <%-include('footer') -%> 

@@ -1,7 +1,15 @@
 <%-include('header') -%>
 
 <div class = "container">
-    AIHSDGHJSDFKJSD
+    <a href = "/" class = "col s6 waves-effect waves-light btn-small"> HOME </a>
+    <h4> Update a Record </h4>
+        <form id = "update" method = "post">
+            <input type="text" name = "movie_id" id = "movie_id" class = "input-field inline" placeholder = "Movie ID"> <br>
+            <input type="text" name = "movie_title" id = "movie_title" class = "input-field inline" placeholder = "Movie Title"> <br>
+            
+            <input type ="submit" value = "update" name = "submit" class = "waves-effect waves-light btn-large">
+        </form>
+        <script src = "/js/update.js"></script>
 </div>
 
 <%-include('footer') -%> 
