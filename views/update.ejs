@@ -3,9 +3,27 @@
 <div class = "container">
     <a href = "/" class = "col s6 waves-effect waves-light btn-small"> HOME </a>
     <h4> Update a Record </h4>
-        <form id = "update" method = "post">
-            <input type="text" name = "movie_id" id = "movie_id" class = "input-field inline" placeholder = "Movie ID"> <br>
-            <input type="text" name = "movie_title" id = "movie_title" class = "input-field inline" placeholder = "Movie Title"> <br>
+        <h4>Movie ID: {{movie.movie_id}}</h4>
+        <form id = "update" method = "post" action ="/update-movie/{{movie.movie_id}}">
+            <input type="hidden" name = "movie_id" id = "movie_id" class = "input-field inline" value="{{movie.movie_id}}"> <br>
+
+            <label for="movie_title">Movie Title</label>
+            <input type="text" name = "movie_title" id = "movie_title" class = "input-field inline" value="{{movie.movie_title}}"> <br>
+
+            <label for="movie_year">Movie Year</label>
+            <input type="number" name = "movie_year" id = "movie_year" class = "input-field inline" value="{{movie.movie_year}}"> <br>
+
+            <label for="movie_genre">Movie Genre</label>
+            <input type="text" name = "movie_genre" id = "movie_genre" class = "input-field inline" value="{{movie.movie_genre}}"> <br>
+
+            <label for="movie_director">Movie Director</label>
+            <input type="text" name = "movie_director" id = "movie_director" class = "input-field inline" value="{{movie.movie_director}}"> <br>
+
+            <label for="movie_actor1">Movie Actor 1</label>
+            <input type="text" name = "movie_actor1" id = "movie_actor1" class = "input-field inline" value="{{movie.movie_actor1}}"> <br>
+
+            <label for="movie_actor2">Movie Actor 2</label>
+            <input type="text" name = "movie_actor2" id = "movie_actor2" class = "input-field inline" value="{{movie.movie_actor2}}"> <br>
             
             <input type ="submit" value = "update" name = "submit" class = "waves-effect waves-light btn-large">
         </form>

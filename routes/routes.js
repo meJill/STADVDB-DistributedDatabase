@@ -8,3 +8,6 @@ route.get('/insert', controller.getInsert);
 route.get('/view', controller.getView);
 route.get('/delete', controller.getDelete);
 route.get('/update', controller.getUpdate);
+
+route.post('/insert-movie', controller.getInsertMovie);
+route.post('/update-movie/:id', controller.getUpdateMovie);
