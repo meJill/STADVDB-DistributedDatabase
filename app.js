@@ -14,7 +14,7 @@ app.listen(3000, function () {
   console.log(`Server is running at:` + 3000);
 });
 
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 app.use(express.static('public'))
 
