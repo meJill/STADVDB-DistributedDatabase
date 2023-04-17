@@ -1,16 +1,26 @@
-let mysql = require('mysql2');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-let connection = mysql.createConnection({
-  host: "34.126.128.168",
-  user: "root",
-  password: "group23sleigh",
-  port: "3306",
-  database: "IMDB"
+const node1 = require('./imdb-node1');
+
+const app = express()
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+
+app.listen(3000, function () {
+  console.log(`Server is running at:` + 3000);
 });
 
-connection.connect(function(err) {
-    if (err) {
-        return console.error('error: ' + err.message);
-      }
-    console.log('Connected to the MySQL server.');
-});
+app.set('view engine', 'hbs');
+
+app.use(express.static('public'))
+
+const routes = require('./routes/routes');
+
+app.use('/', routes);
+
+
+
