@@ -10,10 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@picocss/pico": "^1.5.9",
+    "ajax": "^0.0.4",
+    "axist": "^0.0.4",
     "express": "^4.18.2",
     "hbs": "^4.2.0",
+    "i": "^0.3.7",
     "knex": "^2.4.2",
     "materialize-css": "^1.0.0-rc.2",
+    "milligram": "^1.4.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.1",
     "ping": "^0.4.4"
