@@ -6,6 +6,7 @@
     <meta name="keyword" content="Java">
     <link rel="stylesheet" type="text/css" href="/css/layout.css">
     {{!-- <link rel="icon" type = "image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/IMDb_Logo_Square.svg"> --}}
+        {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/> --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="/js/query.js" type="text/javascript"></script>
 </head>
@@ -26,13 +27,14 @@
                 <p class='text-node'>Transaction 1</p>
                 
                 <div id='node1-query' class='node-query'>
-                <select id='node1-crud' name='node1crud' class='select-crud'>
-                    <option value='empty'></option>
-                    <option value='read'>Read</option>
-                    <option value='update'>Update</option>
-                    <option value='delete'>Delete</option>
-                </select>
-
+             
+                        <select id='node1-crud' name='node1crud'>
+                            <option value=''></option>
+                            <option value='read'>Read</option>
+                            <option value='update'>Update</option>
+                            <option value='delete'>Delete</option>
+                        </select>
+               
                 <input type='search' id='node1-id' class='query-crud' name='node1id' placeholder='ID' autocomplete='off'>
                 <input type='search' id='node1-name' class='query-crud' name='node1name' placeholder='Name' autocomplete='off'>
                 <input type='search' id='node1-year' class='query-crud' name='node1year' placeholder='Year' autocomplete='off'>
@@ -42,7 +44,7 @@
                 <!-- Node 2 Query Input Boxes -->
                 <p class='text-node'>Transaction 2</p>
 
-                <div id='node2-query' class='node-query'>
+                <div id='node2-query'>
                 <select id='node2-crud' name='node2crud' class='select-crud'>
                     <option value='empty'></option>
                     <option value='read'>Read</option>
