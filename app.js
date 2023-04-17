@@ -1,23 +1,30 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mysql = require('mysql');
-var hbs = require('hbs');
-var exphbs = require('express-handlebars');
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
 
-var app = express();
-var port = 3000;
+const app = express();
+const port = 3000;
  
-app.set('view engine', 'hbs');
-const path = require('path');
+const con = mysql.createConnection({
+  host: "34.126.128.168",
+  user: "root",
+  password: "group23sleigh",
+  database: "IMDB"
+})
 
-app.engine('handlebars', exphbs.engine({
-  layoutsDir: __dirname + '/views/layouts',
-  }));
-  app.use(express.static('public'))
-  app.get('/', (req, res) => {
-  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
-  res.render('main', {layout : 'index'});
-  });
+app.set('view engine', 'ejs');
+app.use(express.static('public'))
+
+app.use('/', async function (req, res) {
+  res.render('index');
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 
 app.listen(3000, function () {
   console.log(`Server is running at:` + 3000);
