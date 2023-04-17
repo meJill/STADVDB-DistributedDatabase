@@ -1,8 +1,28 @@
 var express = require('express');
+var router = express.Router();
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var hbs = require('hbs');
 var exphbs = require('express-handlebars');
+
+var con = mysql.createConnection({
+  host: "34.126.128.168",
+  user: "root",
+  password: "group23sleigh",
+  port: "3306",
+  database: "IMDB"
+});
+
+con.connect(function(err) {
+  if (err)
+  {
+    console.error('error: ' + err.message)
+  }
+  else
+  {
+    console.log("Connected!");
+  }
+});
 
 var app = express();
 var port = 3000;
@@ -23,6 +43,51 @@ app.listen(3000, function () {
   console.log(`Server is running at:` + 3000);
   
 });
+
+app.get('/insert', function(req,res){
+  res.render('insert');
+  res.sendFile("index.hbs");
+})
+
+app.post('/insert', function(req, res){
+  var id = req.body.id;
+  var movietitle = req.body.movie_title;
+  var year = req.body.movie_year;
+  var genre = req.body.genre;
+  var director = req.body.director;
+  var actor1 = req.body.actor1;
+  var actor2 = req.body.actor2;
+
+  var query = 
+  'INSERT INTO movies (title, year, genre, director, actor1, actor2) VALUES ('
+    +movietitle+ ',' +year+ ',' +genre+ ',' +director+ ',' +actor1+ ',' +actor2+ ')'
+
+  console.log(query);
+  /*database.query(query, function(err, data){
+    if(err)
+    {
+      throw err;
+    }
+    else
+    {
+      res.redirect("/");
+    }
+  });*/
+})
+
+app.get('/view', function(req,res){
+  var query = "SELECT * FROM actors ORDER BY id DESC";
+  database.query(query, function(err, data){
+    if(err)
+    {
+      throw err;
+    }
+    else
+    {
+      res.render('view',{view:query});
+    }
+  })
+})
 
 //other code
 // var con = mysql.createConnection({
