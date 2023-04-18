@@ -520,7 +520,24 @@ const transactionController = {
             }
             if(node1_query.crud == "insert"){
                 var query = startquery + "INSERT INTO movies (title, year, genre) VALUES (\"" + node1_query.title + "\", \" " + node1_query.year + "\", \" " + node1_query.genre + "; COMMIT;";   
+                //insert into node 1
                 //if (node1_query.)
+                //check for year to check whether to insert into node 2 or node 3
+                if(active1 == 1){
+                    if(node1_query.year < 1980 && node1_query.year != ''){
+                        db.querynode2(startquery+ query);
+                    }
+                    else if(node1_query.year >= 1980 && node1_query.year != ''){
+                        db.querynode3(startquery+ query);
+                    }  
+                    else{
+
+                    }
+                }
+                else{
+                    db.querynode1(startquery+ query);
+                }
+                
             }
         }    
     },
