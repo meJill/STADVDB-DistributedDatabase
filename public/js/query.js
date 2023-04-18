@@ -4,6 +4,7 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
+                $("#node1-id").show();
                 $("#node1-title").show();
                 $("#node1-year").show();
                 $("#node1-genre").show();
@@ -13,16 +14,19 @@ $(document).ready(function () {
                 $("#node1-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
+                $("#node1-id").show();
                 $("#node1-title").hide();
                 $("#node1-year").hide();
                 $("#node1-genre").hide();
                 break;
             case 'delete':
+                $("#node1-id").show();
                 $("#node1-title").hide();
                 $("#node1-year").hide();
                 $("#node1-genre").hide();
                 break;
             case 'update':
+                $("#node1-id").show();
                 $("#node1-title").show();
                 $("#node1-year").show();
                 $("#node1-genre").show();
@@ -31,6 +35,13 @@ $(document).ready(function () {
                 $("#node1-year").attr("placeholder", "New Year");
                 $("#node1-genre").attr("placeholder", "New Genre");
                 break;
+            case 'insert':
+                $("#node1-id").val();
+                $("#node1-id").hide();
+                $("#node1-title").show();
+                $("#node1-year").show();
+                $("#node1-genre").show();
+                break;
         }
     });
 
@@ -38,6 +49,7 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
+                $("#node2-id").show();
                 $("#node2-title").show();
                 $("#node2-year").show();
                 $("#node2-genre").show();
@@ -47,16 +59,19 @@ $(document).ready(function () {
                 $("#node2-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
+                $("#node2-id").show();
                 $("#node2-title").hide();
                 $("#node2-year").hide();
                 $("#node2-genre").hide();
                 break;
             case 'delete':
+                $("#node2-id").show();
                 $("#node2-title").hide();
                 $("#node2-year").hide();
                 $("#node2-genre").hide();
                 break;
             case 'update':
+                $("#node2-id").show();
                 $("#node2-title").show();
                 $("#node2-year").show();
                 $("#node2-genre").show();
@@ -65,6 +80,13 @@ $(document).ready(function () {
                 $("#node2-year").attr("placeholder", "New Year");
                 $("#node2-genre").attr("placeholder", "New Genre");
                 break;
+            case 'insert':
+                $("#node2-id").val();
+                $("#node2-id").hide();
+                $("#node2-title").show();
+                $("#node2-year").show();
+                $("#node2-genre").show();
+                break;
         }
     });
 
@@ -72,6 +94,7 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
+                $("#node3-id").show();
                 $("#node3-title").show();
                 $("#node3-year").show();
                 $("#node3-genre").show();
@@ -81,16 +104,19 @@ $(document).ready(function () {
                 $("#node3-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
+                $("#node3-id").show();
                 $("#node3-title").hide();
                 $("#node3-year").hide();
                 $("#node3-genre").hide();
                 break;
             case 'delete':
+                $("#node3-id").show();
                 $("#node3-title").hide();
                 $("#node3-year").hide();
                 $("#node3-genre").hide();
                 break;
             case 'update':
+                $("#node3-id").show();
                 $("#node3-title").show();
                 $("#node3-year").show();
                 $("#node3-genre").show();
@@ -98,6 +124,13 @@ $(document).ready(function () {
                 $("#node3-title").attr("placeholder", "New Title");
                 $("#node3-year").attr("placeholder", "New Year");
                 $("#node3-genre").attr("placeholder", "New Genre");
+                break;
+            case 'insert':
+                $("#node3-id").val();
+                $("#node3-id").hide();
+                $("#node3-title").show();
+                $("#node3-year").show();
+                $("#node3-genre").show();
                 break;
         }
     });
@@ -123,11 +156,6 @@ $(document).ready(function () {
         var node1_genre = $("#node1-genre").val();
         var node2_genre = $("#node2-genre").val();
         var node3_genre = $("#node3-genre").val();
-        
-        /*console.log("Node 1 Crud: " + node1_crud);
-        console.log("Node 2 Crud: " + node2_crud);
-        console.log("Node 3 Crud: " + node3_crud);
-        console.log("");*/
 
         var nodepass = true;
         var readpass = true;
