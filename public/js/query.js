@@ -4,32 +4,32 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
-                $("#node1-name").show();
+                $("#node1-title").show();
                 $("#node1-year").show();
-                $("#node1-rank").show();
+                $("#node1-genre").show();
             
-                $("#node1-name").attr("placeholder", "Name");
+                $("#node1-title").attr("placeholder", "Title");
                 $("#node1-year").attr("placeholder", "Year");
-                $("#node1-rank").attr("placeholder", "Rank");
+                $("#node1-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
-                $("#node1-name").hide();
+                $("#node1-title").hide();
                 $("#node1-year").hide();
-                $("#node1-rank").hide();
+                $("#node1-genre").hide();
                 break;
             case 'delete':
-                $("#node1-name").hide();
+                $("#node1-title").hide();
                 $("#node1-year").hide();
-                $("#node1-rank").hide();
+                $("#node1-genre").hide();
                 break;
             case 'update':
-                $("#node1-name").show();
+                $("#node1-title").show();
                 $("#node1-year").show();
-                $("#node1-rank").show();
+                $("#node1-genre").show();
 
-                $("#node1-name").attr("placeholder", "New Name");
+                $("#node1-title").attr("placeholder", "New Title");
                 $("#node1-year").attr("placeholder", "New Year");
-                $("#node1-rank").attr("placeholder", "New Rank");
+                $("#node1-genre").attr("placeholder", "New Genre");
                 break;
         }
     });
@@ -38,32 +38,32 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
-                $("#node2-name").show();
+                $("#node2-title").show();
                 $("#node2-year").show();
-                $("#node2-rank").show();
+                $("#node2-genre").show();
             
-                $("#node2-name").attr("placeholder", "Name");
+                $("#node2-title").attr("placeholder", "Title");
                 $("#node2-year").attr("placeholder", "Year");
-                $("#node2-rank").attr("placeholder", "Rank");
+                $("#node2-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
-                $("#node2-name").hide();
+                $("#node2-title").hide();
                 $("#node2-year").hide();
-                $("#node2-rank").hide();
+                $("#node2-genre").hide();
                 break;
             case 'delete':
-                $("#node2-name").hide();
+                $("#node2-title").hide();
                 $("#node2-year").hide();
-                $("#node2-rank").hide();
+                $("#node2-genre").hide();
                 break;
             case 'update':
-                $("#node2-name").show();
+                $("#node2-title").show();
                 $("#node2-year").show();
-                $("#node2-rank").show();
+                $("#node2-genre").show();
 
-                $("#node2-name").attr("placeholder", "New Name");
+                $("#node2-title").attr("placeholder", "New Title");
                 $("#node2-year").attr("placeholder", "New Year");
-                $("#node2-rank").attr("placeholder", "New Rank");
+                $("#node2-genre").attr("placeholder", "New Genre");
                 break;
         }
     });
@@ -72,32 +72,32 @@ $(document).ready(function () {
         var val = $(this).val();
         switch(val) {
             case 'empty':
-                $("#node3-name").show();
+                $("#node3-title").show();
                 $("#node3-year").show();
-                $("#node3-rank").show();
+                $("#node3-genre").show();
             
-                $("#node3-name").attr("placeholder", "Name");
+                $("#node3-title").attr("placeholder", "Title");
                 $("#node3-year").attr("placeholder", "Year");
-                $("#node3-rank").attr("placeholder", "Rank");
+                $("#node3-genre").attr("placeholder", "Genre");
                 break;
             case 'read':
-                $("#node3-name").hide();
+                $("#node3-title").hide();
                 $("#node3-year").hide();
-                $("#node3-rank").hide();
+                $("#node3-genre").hide();
                 break;
             case 'delete':
-                $("#node3-name").hide();
+                $("#node3-title").hide();
                 $("#node3-year").hide();
-                $("#node3-rank").hide();
+                $("#node3-genre").hide();
                 break;
             case 'update':
-                $("#node3-name").show();
+                $("#node3-title").show();
                 $("#node3-year").show();
-                $("#node3-rank").show();
+                $("#node3-genre").show();
 
-                $("#node3-name").attr("placeholder", "New Name");
+                $("#node3-title").attr("placeholder", "New Title");
                 $("#node3-year").attr("placeholder", "New Year");
-                $("#node3-rank").attr("placeholder", "New Rank");
+                $("#node3-genre").attr("placeholder", "New Genre");
                 break;
         }
     });
@@ -111,18 +111,18 @@ $(document).ready(function () {
         var node1_id = $("#node1-id").val();
         var node2_id = $("#node2-id").val();
         var node3_id = $("#node3-id").val();
-        //Name Textboxes
-        var node1_name = $("#node1-name").val();
-        var node2_name = $("#node2-name").val();
-        var node3_name = $("#node3-name").val();
+        //Title Textboxes
+        var node1_title = $("#node1-title").val();
+        var node2_title = $("#node2-title").val();
+        var node3_title = $("#node3-title").val();
         //Year Textboxes
         var node1_year = $("#node1-year").val();
         var node2_year = $("#node2-year").val();
         var node3_year = $("#node3-year").val();
-        //Rank Textboxes
-        var node1_rank = $("#node1-rank").val();
-        var node2_rank = $("#node2-rank").val();
-        var node3_rank = $("#node3-rank").val();
+        //Genre Textboxes
+        var node1_genre = $("#node1-genre").val();
+        var node2_genre = $("#node2-genre").val();
+        var node3_genre = $("#node3-genre").val();
         
         /*console.log("Node 1 Crud: " + node1_crud);
         console.log("Node 2 Crud: " + node2_crud);
@@ -169,8 +169,8 @@ $(document).ready(function () {
                 $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 1 when ID field is empty.</p>");
                 updatepass = false;
             } else if (node1_crud == "update" && node1_id !="") {
-                //Empty Name, Rank, Year values
-                if (node1_name == "" && node1_year == "" && node1_rank == "") {
+                //Empty Title, Genre, Year values
+                if (node1_title == "" && node1_year == "" && node1_genre == "") {
                     $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 1 when there are no new values.</p>");
                     updatepass = false;
                 } else { updatepass = true; }
@@ -180,8 +180,8 @@ $(document).ready(function () {
                 $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 2 when ID field is empty.</p>");
                 updatepass = false;
             } else if (node2_crud == "update" && node2_id != ""){
-                //Empty Name, Rank, Year values
-                if (node2_name == "" && node2_year == "" && node2_rank == "") {
+                //Empty Title, Genre, Year values
+                if (node2_title == "" && node2_year == "" && node2_genre == "") {
                     $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 2 when there are no new values.</p>");
                     updatepass = false
                 } else { updatepass = true; }
@@ -191,8 +191,8 @@ $(document).ready(function () {
                 $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 3 when ID field is empty.</p>");
                 updatepass = false;
             } else if (node3_crud == "update" && node3_id != ""){
-                //Empty Name, Rank, Year values
-                if (node3_name == "" && node3_year == "" && node3_rank == "") {
+                //Empty Title, Genre, Year values
+                if (node3_title == "" && node3_year == "" && node3_genre == "") {
                     $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 3 when there are no new values.</p>");
                     updatepass = false;
                 } else { updatepass = true; }

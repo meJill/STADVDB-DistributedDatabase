@@ -1,5 +1,3 @@
-
-
 const controller = {
 
     getFavicon: function (req, res) {
