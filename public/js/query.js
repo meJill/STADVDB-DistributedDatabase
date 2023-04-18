@@ -165,7 +165,7 @@ $(document).ready(function () {
         //All Crud Dropdown is Empty
         if (node1_crud == "empty" && node2_crud == "empty" && node3_crud == "empty"){
             $("#alert-invalid").html("");
-            $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>All fields cannot be empty. Fill at least one.</p>");
+            $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Please fill up a field</p>");
             $("#alert-invalid").show();
             nodepass = false;
         }
@@ -174,17 +174,17 @@ $(document).ready(function () {
             $("#alert-invalid").html("");
             //Node 1
             if (node1_crud == "read" && node1_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot READ in Node 1 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 1 ID field cant be empty</p>");
                 readpass = false;
             } else if (node1_crud == "read" && node1_id != "") { readpass = true; }
             //Node 2
             if (node2_crud == "read" && node2_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot READ in Node 2 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 1 ID field cant be empty</p>");
                 readpass = false;
             } else if (node2_crud == "read" && node2_id != "") { readpass = true; }
             //Node 3
             if (node3_crud == "read" && node3_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot READ in Node 3 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 3 ID field cant be empty</p>");
                 readpass = false;
             } else if (node3_crud == "read" && node3_id != "") { readpass = true; }
             $("#alert-invalid").show();
@@ -194,34 +194,34 @@ $(document).ready(function () {
             $("#alert-invalid").html("");
             //Node 1
             if (node1_crud == "update" && node1_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 1 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 1 ID field cant be empty</p>");
                 updatepass = false;
             } else if (node1_crud == "update" && node1_id !="") {
                 //Empty Title, Genre, Year values
                 if (node1_title == "" && node1_year == "" && node1_genre == "") {
-                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 1 when there are no new values.</p>");
+                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 1 fields need new value</p>");
                     updatepass = false;
                 } else { updatepass = true; }
             }
             //Node 2
             if (node2_crud == "update" && node2_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 2 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 2 ID field cant be empty</p>");
                 updatepass = false;
             } else if (node2_crud == "update" && node2_id != ""){
                 //Empty Title, Genre, Year values
                 if (node2_title == "" && node2_year == "" && node2_genre == "") {
-                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 2 when there are no new values.</p>");
+                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 2 fields need new value</p>");
                     updatepass = false
                 } else { updatepass = true; }
             }
             //Node 3
             if (node3_crud == "update" && node3_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 3 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 3 ID field cant be empty</p>");
                 updatepass = false;
             } else if (node3_crud == "update" && node3_id != ""){
                 //Empty Title, Genre, Year values
                 if (node3_title == "" && node3_year == "" && node3_genre == "") {
-                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot UPDATE Node 3 when there are no new values.</p>");
+                    $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 3 fields need new value</p>");
                     updatepass = false;
                 } else { updatepass = true; }
             }
@@ -232,17 +232,17 @@ $(document).ready(function () {
             $("#alert-invalid").html("");
             //Node 1
             if (node1_crud == "delete" && node1_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot DELETE in Node 1 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 1 ID field cant be empty</p>");
                 deletepass = false;
             } else if (node1_crud == "delete" && node1_id != "") { deletepass = true; }
             //Node 2
             if (node2_crud == "delete" && node2_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot DELETE in Node 2 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 2 ID field cant be empty</p>");
                 deletepass = false;
             } else if (node2_crud == "delete" && node2_id != "") { deletepass = true; }
             //Node 3
             if (node3_crud == "delete" && node3_id == "") {
-                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Cannot DELETE in Node 3 when ID field is empty.</p>");
+                $("#alert-invalid").append("<p class='text-node' style='color: #E60000;'>Node 3 ID field cant be empty</p>");
                 deletepass = false;
             } else if (node3_crud == "delete" && node3_id != "") { deletepass = true; }
             $("#alert-invalid").show();
