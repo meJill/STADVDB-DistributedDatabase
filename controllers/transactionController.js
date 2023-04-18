@@ -93,7 +93,7 @@ const transactionController = {
                                 
                             if(node2_query.crud != "empty"){
                                 if(node2_query.id != node1_query.id){
-                                    if(active == 1 && active2 == 1 && active3 == 1){
+                                    if(active1 == 1 && active2 == 1 && active3 == 1){
                                         trans.checkConsistency("START TRANSACTION; ", node2_query);
                                         trans.checkConsistency("START TRANSACTION; ", node2_query);
                                         await trans.sleep(2000);
@@ -189,7 +189,7 @@ const transactionController = {
                                             
                                             if(result.title != result2.title || result.year != result2.year || result.genre != result2.genre){
                                                 console.log("Updated Inconsistency in Node 2");
-                                                query = startquery + "UPDATE movies SET title = \"" + result.title + "\", year = " + result.year + ", rating = " + result.genre + " WHERE id = " + result.id;
+                                                query = startquery + "UPDATE movies SET title = \"" + result.title + "\", year = " + result.year + ", genre = " + result.genre + " WHERE id = " + result.id;
                                                 Promise.allSettled([db.querynode2(query)]).then(val => {
                                                 });
                                                 db.querynode3(startquery + "DELETE movies FROM movies WHERE id = " + node1_query.id + "; COMMIT;");
@@ -209,7 +209,7 @@ const transactionController = {
                                         Promise.allSettled([db.querynode2(startquery + "DELETE movies FROM movies WHERE id = " + node1_query.id + "; COMMIT;")]).then(val => {
                                             
                                         });
-                                        db.querynode2(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                        db.querynode2(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                     }
                                 });
                             }
@@ -221,7 +221,7 @@ const transactionController = {
                                         res2.forEach(async function(result2) {
                                             
                                             if(result.title != result2.title || result.year != result2.year || result.genre != result2.genre){
-                                                query = startquery +  "UPDATE movies SET title = \"" + result.title + "\", year = " + result.year + ", rating = " + result.genre + " WHERE id = " + result.id + "; COMMIT;";
+                                                query = startquery +  "UPDATE movies SET title = \"" + result.title + "\", year = " + result.year + ", genre = " + result.genre + " WHERE id = " + result.id + "; COMMIT;";
                                                 Promise.allSettled([db.querynode3(query)]).then( val => {
                                                     
                                                 });
@@ -241,7 +241,7 @@ const transactionController = {
 
                                         Promise.allSettled([db.querynode3(startquery + "DELETE movies FROM movies WHERE id = " + node1_query.id + "; COMMIT;")]).then(val => {
                                         }); 
-                                        db.querynode3(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                        db.querynode3(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                         console.log("Updated Inconsistency From Node 3");
 
                                         
@@ -298,7 +298,7 @@ const transactionController = {
                     if(first == 1){
                         query = query + ",";
                     }
-                    query = query + " rating = " + node1_query.genre;
+                    query = query + " genre = " + node1_query.genre;
                     first = 1;
                 }
                 query = query + " WHERE id = " + node1_query.id + "; COMMIT;";
@@ -320,10 +320,10 @@ const transactionController = {
                                   
                                     setTimeout(() => {  
                                     }, 3000);
-                                    await db.querynode3(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
+                                    await db.querynode3(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
                                 }
                                 else {//store query to file of node3
-                                    file.writeNode3(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                    file.writeNode3(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                     file.writeNode3(query);
                                 }
                             }
@@ -341,11 +341,11 @@ const transactionController = {
                                    
                                     setTimeout(() => {  
                                     }, 3000);
-                                    await db.querynode2(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT; " + query);
+                                    await db.querynode2(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT; " + query);
                                 }    
                                 else{
                                     
-                                    file.writeNode2(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                    file.writeNode2(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                     file.writeNode2(query);
                                 }
                             }
@@ -385,10 +385,10 @@ const transactionController = {
                                         if(active3 ==1){
                                             setTimeout(() => {  
                                             }, 3000);
-                                            await db.querynode3(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
+                                            await db.querynode3(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
                                         }
                                         else {//store query to file of node3
-                                            file.writeNode3(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                            file.writeNode3(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                             file.writeNode3(query);
                                         }
                                     }
@@ -420,11 +420,11 @@ const transactionController = {
                                                 if(active2 == 1){
                                                     setTimeout(() => {  
                                                     }, 3000);
-                                                    await db.querynode2(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
+                                                    await db.querynode2(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;" + query);
                                                 }    
                                                 else{
                                                     //store query to file of node 2
-                                                    file.writeNode2(startquery + "INSERT INTO movies (id, title, year, rating) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
+                                                    file.writeNode2(startquery + "INSERT INTO movies (id, title, year, genre) VALUES (" + result.id + ", \"" + result.title + "\", "+ result.year + ", " + result.genre + "); COMMIT;");
                                                     file.writeNode2(query);
                                                 }
                                             }
