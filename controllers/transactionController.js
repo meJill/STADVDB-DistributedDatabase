@@ -518,7 +518,7 @@ const transactionController = {
                     file.writeNode1(query);
                 }            
             }
-            if(node1_query.crud == "delete"){
+            if(node1_query.crud == "insert"){
                 var query = startquery + "INSERT INTO movies (title, year, genre) VALUES (\"" + node1_query.title + "\", \" " + node1_query.year + "\", \" " + node1_query.genre + "; COMMIT;";   
                 //if (node1_query.)
             }
